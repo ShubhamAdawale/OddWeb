@@ -1,0 +1,61 @@
+<!-- HTML Contact Form -->
+<form id="contact-form">
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="email" id="email" placeholder="Your Email" required>
+    <textarea id="message" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+
+  <script>
+    // Event listener for form submission
+    document.getElementById("contact-form").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent default form submission
+
+      // Get form values
+      var name = document.getElementById("name").value;
+      var email = document.getElementById("email").value;
+      var message = document.getElementById("message").value;
+
+      // Create message content
+      var content = "Name: " + name + "\n";
+      content += "Email: " + email + "\n";
+      content += "Message: " + message;
+
+      // WhatsApp Business API endpoint URL
+      var apiUrl = "https://api.example.com/send-message"; // Replace with your API endpoint
+
+      // Create a new XMLHttpRequest object
+      var xhr = new XMLHttpRequest();
+
+      // Configure the request
+      xhr.open("POST", apiUrl);
+      xhr.setRequestHeader("Content-Type", "application/json");
+
+      // Define the request payload
+      var payload = {
+        to: "8485834885", // Replace with your company's WhatsApp number
+        content: content
+      };
+
+      // Convert payload to JSON
+      var jsonPayload = JSON.stringify(payload);
+
+      // Send the request
+      xhr.send(jsonPayload);
+
+      // Handle the response
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+          if (xhr.status === 200) {
+            // Message sent successfully
+            alert("Message sent successfully!");
+            // You can also display a success message on the HTML form
+          } else {
+            // Error occurred while sending message
+            alert("Failed to send message. Please try again.");
+            // You can display an error message on the HTML form
+          }
+        }
+      };
+    });
+  </script>
