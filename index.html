@@ -721,12 +721,15 @@
             <div class="line-dec"></div>
           </div>
         </div>
+
         <div class="col-lg-8 offset-lg-2  wow fadeIn" data-wow-duration="1s" data-wow-delay="0.8s">
-          <form id="search" action="#" method="GET">
+          <form id="search"
+            action="https://script.google.com/macros/s/AKfycbwpCzPH9Uo1DYRe1xf4yFppj55RN_OBs72ZeP5wwilRfc1K8drIDjBHmWdg1wmdcDTA/exec"
+            method="POST">
             <div class="row">
               <div class="col-lg-4 col-sm-4">
                 <fieldset>
-                  <input type="number" name="phone" class="website" placeholder="Your Phone Number" autocomplete="on"
+                  <input type="email" name="email" class="fa-phone" placeholder="Your Emial Id" autocomplete="on"
                     required>
                 </fieldset>
               </div>
@@ -742,6 +745,64 @@
               </div>
             </div>
           </form>
+
+          <!-- https://script.google.com/macros/s/AKfycbzG7O8HGI89vGVdYJ1eENFGB8GVrMVkCT_Ri1DEZD3nbwt8JU705qE_qcNo0VPXZkI-CQ/exec -->
+          <script>
+            document.getElementById("search").addEventListener("submit", function (event) {
+              event.preventDefault(); // Prevent the default form submission
+
+              // Get form values
+              var email = document.querySelector('input[name="email"]').value;
+              var name = document.querySelector('input[name="name"]').value;
+
+              // Show the spinner
+              document.getElementById("spinner").style.display = "block";
+
+              // Disable the submit button
+              document.querySelector('button[type="submit"]').disabled = true;
+
+              // Construct the URL for the server-side script
+              var url = "https://script.google.com/macros/s/AKfycbwpCzPH9Uo1DYRe1xf4yFppj55RN_OBs72ZeP5wwilRfc1K8drIDjBHmWdg1wmdcDTA/exec";
+
+              // Create a new FormData object and populate it with form data
+              var formData = new FormData();
+              formData.append("email", email);
+              formData.append("name", name);
+
+              // Create a new XMLHttpRequest object
+              var xhr = new XMLHttpRequest();
+              xhr.open("POST", url, true);
+
+              // Set the onload callback function
+              xhr.onload = function () {
+                if (xhr.status === 200) {
+                  alert("Form submitted successfully!");
+
+                  // Reset the form fields
+                  document.querySelector('input[name="email"]').value = "";
+                  document.querySelector('input[name="name"]').value = "";
+
+                  // Hide the spinner
+                  document.getElementById("spinner").style.display = "none";
+
+                  // Enable the submit button
+                  document.querySelector('button[type="submit"]').disabled = false;
+                } else {
+                  alert("An error occurred while submitting the form. Please try again.");
+
+                  // Hide the spinner
+                  document.getElementById("spinner").style.display = "none";
+
+                  // Enable the submit button
+                  document.querySelector('button[type="submit"]').disabled = false;
+                }
+              };
+
+              // Send the form data
+              xhr.send(formData);
+            });
+
+          </script>
         </div>
       </div>
     </div>
@@ -920,7 +981,7 @@
 
           </script> -->
           <form id="contact" method="POST"
-            action="https://script.google.com/macros/s/AKfycbyXAk3A6KaPeTVah-KWpRNizjEsZ-z2uYmJloMFpLj5Y6rAFeujQhqpmu3KtP2N0367/exec">
+            action="https://script.google.com/macros/s/AKfycbzrXSQQhbOHrfL3zYCC-TzfhpEIkqihAdOQMM1kTt3eK8rj65xJ6IeBs14ncW36IoKW/exec">
             <div class="row">
               <div class="col-lg-12"></div>
               <div class="col-lg-5">
@@ -984,7 +1045,7 @@
               document.getElementById("form-submit").disabled = true;
 
               // Construct the URL for the server-side script
-              var url = "https://script.google.com/macros/s/AKfycbyXAk3A6KaPeTVah-KWpRNizjEsZ-z2uYmJloMFpLj5Y6rAFeujQhqpmu3KtP2N0367/exec";
+              var url = "https://script.google.com/macros/s/AKfycbzrXSQQhbOHrfL3zYCC-TzfhpEIkqihAdOQMM1kTt3eK8rj65xJ6IeBs14ncW36IoKW/exec";
 
               // Create a new FormData object and populate it with form data
               var formData = new FormData();
