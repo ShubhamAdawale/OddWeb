@@ -980,8 +980,7 @@
             });
 
           </script> -->
-          <form id="contact" method="POST"
-            action="https://script.google.com/macros/s/AKfycbzrXSQQhbOHrfL3zYCC-TzfhpEIkqihAdOQMM1kTt3eK8rj65xJ6IeBs14ncW36IoKW/exec">
+          <form id="contact" method="POST" action="https://script.google.com/macros/s/AKfycbwI130ag1-vAh5oVv_8TucbJNxwIZBjHzOu2yFtfenjXOC7oWXxSMtBh3YM8qMUM6iJ/exec">
             <div class="row">
               <div class="col-lg-12"></div>
               <div class="col-lg-5">
@@ -1000,7 +999,7 @@
                         <input type="text" name="name" id="name" placeholder="Name" autocomplete="on" required>
                       </fieldset>
                       <fieldset>
-                        <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email"
+                        <input type="number" name="phone" id="phone" pattern="^\d{10}$" placeholder="Your Phone"
                           required="">
                       </fieldset>
                       <fieldset>
@@ -1034,7 +1033,7 @@
 
               // Get form values
               var name = document.getElementById("name").value;
-              var email = document.getElementById("email").value;
+              var phone = document.getElementById("phone").value;
               var subject = document.getElementById("subject").value;
               var message = document.getElementById("message").value;
 
@@ -1045,12 +1044,12 @@
               document.getElementById("form-submit").disabled = true;
 
               // Construct the URL for the server-side script
-              var url = "https://script.google.com/macros/s/AKfycbzrXSQQhbOHrfL3zYCC-TzfhpEIkqihAdOQMM1kTt3eK8rj65xJ6IeBs14ncW36IoKW/exec";
+              var url = "https://script.google.com/macros/s/AKfycbwI130ag1-vAh5oVv_8TucbJNxwIZBjHzOu2yFtfenjXOC7oWXxSMtBh3YM8qMUM6iJ/exec";
 
               // Create a new FormData object and populate it with form data
               var formData = new FormData();
               formData.append("name", name);
-              formData.append("email", email);
+              formData.append("phone", phone);
               formData.append("subject", subject);
               formData.append("message", message);
 
@@ -1061,11 +1060,11 @@
               // Set the onload callback function
               xhr.onload = function () {
                 if (xhr.status === 200) {
-                  alert("Message sent successfully!");
+                  alert("Form submitted successfully!");
 
                   // Reset the form fields
                   document.getElementById("name").value = "";
-                  document.getElementById("email").value = "";
+                  document.getElementById("phone").value = "";
                   document.getElementById("subject").value = "";
                   document.getElementById("message").value = "";
 
@@ -1075,7 +1074,7 @@
                   // Enable the submit button
                   document.getElementById("form-submit").disabled = false;
                 } else {
-                  alert("An error occurred while sending the message. Please try again.");
+                  alert("An error occurred while submitting the form. Please try again.");
 
                   // Hide the spinner
                   document.getElementById("spinner").style.display = "none";
