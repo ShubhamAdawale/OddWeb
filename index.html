@@ -14,6 +14,8 @@
 
   <title>Odd Creatives</title>
 
+  <link rel="icon" type="image/png" href="assets/images/images/logo.png">
+
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -87,9 +89,9 @@
               <li class="scroll-to-section"><a href="#services">Services</a></li>
               <li class="scroll-to-section"><a href="#portfolio">Projects</a></li>
               <li class="scroll-to-section"><a href="#blog">Blog</a></li>
-              <li class="scroll-to-section"><a href="#contact">Contact</a></li>
+              <li class="scroll-to-section"><a href="#contact-us">Contact</a></li>
               <li class="scroll-to-section">
-                <div class="border-first-button"><a href="#contact">Free Quote</a></div>
+                <div class="border-first-button"><a href="#contact-us">Free Quote</a></div>
               </li>
             </ul>
             <a class='menu-trigger'>
@@ -723,7 +725,7 @@
         </div>
 
         <div class="col-lg-8 offset-lg-2  wow fadeIn" data-wow-duration="1s" data-wow-delay="0.8s">
-          <form id="search"
+          <!-- <form id="search"
             action="https://script.google.com/macros/s/AKfycbwpCzPH9Uo1DYRe1xf4yFppj55RN_OBs72ZeP5wwilRfc1K8drIDjBHmWdg1wmdcDTA/exec"
             method="POST">
             <div class="row">
@@ -745,8 +747,6 @@
               </div>
             </div>
           </form>
-
-          <!-- https://script.google.com/macros/s/AKfycbzG7O8HGI89vGVdYJ1eENFGB8GVrMVkCT_Ri1DEZD3nbwt8JU705qE_qcNo0VPXZkI-CQ/exec -->
           <script>
             document.getElementById("search").addEventListener("submit", function (event) {
               event.preventDefault(); // Prevent the default form submission
@@ -795,6 +795,122 @@
 
                   // Enable the submit button
                   document.querySelector('button[type="submit"]').disabled = false;
+                }
+              };
+
+              // Send the form data
+              xhr.send(formData);
+            });
+
+          </script> -->
+          <style>
+            .spinner {
+              display: inline-block;
+              border: 4px solid #f3f3f3;
+              border-top: 4px solid #3498db;
+              border-radius: 50%;
+              width: 2rem;
+              height: 2rem;
+              margin-top: 1.5rem;
+              animation: spin 2s linear infinite;
+              margin-right: 5px;
+              /* Add a margin to create space */
+              vertical-align: middle;
+              /* Align the spinner vertically in the middle */
+            }
+
+            .button-container {
+              display: flex;
+              align-items: center;
+            }
+
+            @keyframes spin {
+              0% {
+                transform: rotate(0deg);
+              }
+
+              100% {
+                transform: rotate(360deg);
+              }
+            }
+          </style>
+
+          <form id="search"
+            action="https://script.google.com/macros/s/AKfycbwpCzPH9Uo1DYRe1xf4yFppj55RN_OBs72ZeP5wwilRfc1K8drIDjBHmWdg1wmdcDTA/exec"
+            method="POST">
+            <div class="row">
+              <div class="col-lg-4 col-sm-4">
+                <fieldset>
+                  <input type="email" name="email" class="fa-phone" placeholder="Your Email Id" autocomplete="on"
+                    required>
+                </fieldset>
+              </div>
+              <div class="col-lg-4 col-sm-4">
+                <fieldset>
+                  <input type="text" name="name" class="name" placeholder="Your Name..." autocomplete="on" required>
+                </fieldset>
+              </div>
+              <div class="col-lg-4 col-sm-4">
+                <fieldset>
+                  <button type="submit" class="main-button">Get Quote Now</button>
+                </fieldset>
+              </div>
+            </div>
+          </form>
+
+          <script>
+            document.getElementById("search").addEventListener("submit", function (event) {
+              event.preventDefault(); // Prevent the default form submission
+
+              // Get form values
+              var email = document.querySelector('input[name="email"]').value;
+              var name = document.querySelector('input[name="name"]').value;
+
+              // Disable the submit button
+              var submitButton = document.querySelector('button[type="submit"]');
+              submitButton.disabled = true;
+
+              // Create a spinner element
+              var spinner = document.createElement("div");
+              spinner.classList.add("spinner");
+
+              // Replace the submit button with the spinner temporarily
+              submitButton.style.display = "none";
+              submitButton.insertAdjacentElement("afterend", spinner);
+
+              // Construct the URL for the server-side script
+              var url = "https://script.google.com/macros/s/AKfycbwpCzPH9Uo1DYRe1xf4yFppj55RN_OBs72ZeP5wwilRfc1K8drIDjBHmWdg1wmdcDTA/exec";
+
+              // Create a new FormData object and populate it with form data
+              var formData = new FormData();
+              formData.append("email", email);
+              formData.append("name", name);
+
+              // Create a new XMLHttpRequest object
+              var xhr = new XMLHttpRequest();
+              xhr.open("POST", url, true);
+
+              // Set the onload callback function
+              xhr.onload = function () {
+                if (xhr.status === 200) {
+                  alert("Form submitted successfully!");
+
+                  // Reset the form fields
+                  document.querySelector('input[name="email"]').value = "";
+                  document.querySelector('input[name="name"]').value = "";
+
+                  // Remove the spinner and restore the submit button
+                  spinner.remove();
+                  submitButton.style.display = "block";
+                  submitButton.disabled = false;
+
+                } else {
+                  alert("An error occurred while submitting the form. Please try again.");
+
+                  // Remove the spinner and restore the submit button
+                  spinner.remove();
+                  submitButton.style.display = "block";
+                  submitButton.disabled = false;
                 }
               };
 
@@ -880,7 +996,7 @@
     </div>
   </div> -->
 
-  <div id="contact" class="contact-us section">
+  <div id="contact-us" class="contact-us section">
     <div class="container">
       <div class="row">
         <div class="col-lg-6 offset-lg-3">
@@ -892,6 +1008,38 @@
         </div>
         <div class="col-lg-12 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.25s">
 
+
+          <style>
+            .spinner {
+              display: inline-block;
+              border: 4px solid #f3f3f3;
+              border-top: 4px solid #3498db;
+              border-radius: 50%;
+              width: 2rem;
+              height: 2rem;
+              margin-top: 1.5rem;
+              animation: spin 2s linear infinite;
+              margin-right: 5px;
+              /* Add a margin to create space */
+              vertical-align: middle;
+              /* Align the spinner vertically in the middle */
+            }
+
+            .button-container {
+              display: flex;
+              align-items: center;
+            }
+
+            @keyframes spin {
+              0% {
+                transform: rotate(0deg);
+              }
+
+              100% {
+                transform: rotate(360deg);
+              }
+            }
+          </style>
           <!-- <form id="contact" method="POST"
             action="https://script.google.com/macros/s/AKfycbyXAk3A6KaPeTVah-KWpRNizjEsZ-z2uYmJloMFpLj5Y6rAFeujQhqpmu3KtP2N0367/exec">
             <div class="row">
@@ -980,7 +1128,8 @@
             });
 
           </script> -->
-          <form id="contact" method="POST" action="https://script.google.com/macros/s/AKfycbwI130ag1-vAh5oVv_8TucbJNxwIZBjHzOu2yFtfenjXOC7oWXxSMtBh3YM8qMUM6iJ/exec">
+          <form id="contact" method="POST"
+            action="https://script.google.com/macros/s/AKfycbwI130ag1-vAh5oVv_8TucbJNxwIZBjHzOu2yFtfenjXOC7oWXxSMtBh3YM8qMUM6iJ/exec">
             <div class="row">
               <div class="col-lg-12"></div>
               <div class="col-lg-5">
@@ -1015,6 +1164,7 @@
                     <div class="col-lg-12">
                       <fieldset>
                         <button type="submit" id="form-submit" class="main-button">Send Message Now</button>
+                        <div id="spinner" class="spinner" style="display: none;"></div>
                       </fieldset>
                     </div>
                   </div>
@@ -1023,11 +1173,9 @@
             </div>
           </form>
 
-          <div id="spinner" class="spinner">
-            <img src="spinner.gif" alt="Loading...">
-          </div>
 
           <script>
+
             document.getElementById("contact").addEventListener("submit", function (event) {
               event.preventDefault(); // Prevent the default form submission
 
@@ -1037,14 +1185,14 @@
               var subject = document.getElementById("subject").value;
               var message = document.getElementById("message").value;
 
-              // Show the spinner
-              document.getElementById("spinner").style.display = "block";
-
               // Disable the submit button
               document.getElementById("form-submit").disabled = true;
 
+              // Show the spinner
+              document.getElementById("spinner").style.display = "inline-block";
+
               // Construct the URL for the server-side script
-              var url = "https://script.google.com/macros/s/AKfycbwI130ag1-vAh5oVv_8TucbJNxwIZBjHzOu2yFtfenjXOC7oWXxSMtBh3YM8qMUM6iJ/exec";
+              var url = "https://script.google.com/macros/s/AKfycbz-1jNdJZp4KLnpqtWR7hdRhvF7_sb4KjKfSv6YIcH9WchkIDk7MXxmJIWAHjvxJvRz/exec";
 
               // Create a new FormData object and populate it with form data
               var formData = new FormData();
@@ -1087,6 +1235,68 @@
               // Send the form data
               xhr.send(formData);
             });
+
+
+
+            // document.getElementById("contact").addEventListener("submit", function (event) {
+            //   event.preventDefault(); // Prevent the default form submission
+
+            //   // Get form values
+            //   var name = document.getElementById("name").value;
+            //   var phone = document.getElementById("phone").value;
+            //   var subject = document.getElementById("subject").value;
+            //   var message = document.getElementById("message").value;
+
+            //   // Show the spinner
+            //   document.getElementById("spinner").style.display = "block";
+
+            //   // Disable the submit button
+            //   document.getElementById("form-submit").disabled = true;
+
+            //   // Construct the URL for the server-side script
+            //   var url = "https://script.google.com/macros/s/AKfycbwI130ag1-vAh5oVv_8TucbJNxwIZBjHzOu2yFtfenjXOC7oWXxSMtBh3YM8qMUM6iJ/exec";
+
+            //   // Create a new FormData object and populate it with form data
+            //   var formData = new FormData();
+            //   formData.append("name", name);
+            //   formData.append("phone", phone);
+            //   formData.append("subject", subject);
+            //   formData.append("message", message);
+
+            //   // Create a new XMLHttpRequest object
+            //   var xhr = new XMLHttpRequest();
+            //   xhr.open("POST", url, true);
+
+            //   // Set the onload callback function
+            //   xhr.onload = function () {
+            //     if (xhr.status === 200) {
+            //       alert("Form submitted successfully!");
+
+            //       // Reset the form fields
+            //       document.getElementById("name").value = "";
+            //       document.getElementById("phone").value = "";
+            //       document.getElementById("subject").value = "";
+            //       document.getElementById("message").value = "";
+
+            //       // Hide the spinner
+            //       document.getElementById("spinner").style.display = "none";
+
+            //       // Enable the submit button
+            //       document.getElementById("form-submit").disabled = false;
+            //     } else {
+            //       alert("An error occurred while submitting the form. Please try again.");
+
+            //       // Hide the spinner
+            //       document.getElementById("spinner").style.display = "none";
+
+            //       // Enable the submit button
+            //       document.getElementById("form-submit").disabled = false;
+            //     }
+            //   };
+
+            //   // Send the form data
+            //   xhr.send(formData);
+            // });
 
           </script>
 
