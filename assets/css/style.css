@@ -231,7 +231,7 @@ body {
   font-size: 1rem;
   font-weight: 600;
   font-weight: 700;
-  color: #e6634a;
+  color: #e31e24;
   text-transform: uppercase;
   margin-bottom: 15px;
 }
@@ -246,13 +246,13 @@ body {
 
 .section-heading h4 em {
   font-style: normal;
-  color: #e6634a;
+  color: #e31e24;
 }
 
 .section-heading .line-dec {
   width: 50px;
   height: 2px;
-  background-color: #e6634a;
+  background-color: #e31e24;
 }
 
 .border-first-button a {
@@ -264,7 +264,7 @@ body {
   font-weight: 700 !important;
   letter-spacing: 0.3px !important;
   transition: all .5s;
-  background-color: #ff4040 !important;
+  background-color: #e31e24 !important;
 }
 
 .border-first-button a:hover {
@@ -403,14 +403,14 @@ header
 }
 
 .pre-header ul.info li a {
-  color: #00000091;
+  color: #2b2a29;
   font-size: 15px;
-  font-weight: 900;
+  font-weight: 600;
   transition: all .3s;
 }
 
 .pre-header ul.info li a:hover {
-  color: #e74626;
+  color: #e31e24;
 }
 
 .pre-header ul.info li a i {
@@ -444,7 +444,8 @@ header
 }
 
 .background-header {
-  background-color: #fff !important;
+  /* background-color: #fff !important; */
+  background-color: #2b2a29;
   height: 80px !important;
   position: fixed !important;
   top: 0px;
@@ -484,7 +485,7 @@ header
 
 .header-area {
   /* background-color: #e74626; */
-  background-color: #1d1a1a;
+  background-color: #2b2a29;
   box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.03);
   position: absolute;
   left: 0px;
@@ -511,8 +512,9 @@ header
 }
 
 .imgLogo {
-  width: 7vw;
-  border-radius: 2vw;
+  width: 6vw;
+  border-radius: 1.1vw;
+  padding: 5px;
 }
 
 .header-area .main-nav .logo {
@@ -572,7 +574,7 @@ header
   font-size: 1.1rem;
   font-weight: 750;
   /* color: #2a2a2a; */
-  color: #e31b23;
+  color: #ffffff;
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
@@ -591,7 +593,7 @@ header
 
 .background-header .main-nav .nav li:hover a,
 .background-header .main-nav .nav li a.active {
-  color: #262626 !important;
+  color: #fae01a !important;
   opacity: 1;
 }
 
@@ -636,8 +638,8 @@ header
 .header-area .main-nav .nav li.submenu ul li a {
   opacity: 1;
   display: block;
-  background: #f7f7f7;
-  color: #2a2a2a !important;
+  background: #d5c9c9;
+  color: #ff0000 !important;
   padding-left: 20px;
   height: 40px;
   line-height: 40px;
@@ -1240,7 +1242,7 @@ About Style
 }
 
 .second-skill-item .progress .progress-bar {
-  border-color: #e6634a;
+  border-color: #e31e24;
 }
 
 .third-skill-item .progress .progress-bar {
@@ -1536,7 +1538,7 @@ Services Style
 .services .naccs .menu div:active {
   /* Add your CSS properties here for the hover or active state */
   /* For example: */
-  background-color: #ff0000;
+  background-color: #e31e24;
   color: #ffffff;
 }
 
@@ -1544,7 +1546,7 @@ Services Style
   display: inline-block;
   width: 100%;
   padding: 30px 0px;
-  /* background-color: #e6634a; */
+  /* background-color: #e31e24; */
 }
 
 .services .naccs .menu div.active {
@@ -1836,7 +1838,7 @@ Portfolio
 }
 
 .our-portfolio .owl-nav span:hover {
-  color: #ff0000;
+  color: #e31e24;
   background-color: #fffb00;
 }
 
@@ -1900,7 +1902,7 @@ Blog
   font-weight: 600;
   color: #fff;
   padding: 8px 12px;
-  background-color: #e6634a;
+  background-color: #e31e24;
   border-radius: 18px;
   display: inline-block;
 }
@@ -1976,7 +1978,7 @@ Blog
   font-weight: 600;
   color: #fff;
   padding: 8px 12px;
-  background-color: #e6634a;
+  background-color: #e31e24;
   border-radius: 18px;
   display: inline-block;
 }
@@ -2598,7 +2600,7 @@ responsive
 
 :root {
   --white: #afafaf;
-  --red: #e31b23;
+  --red: #e31e24;
   --bodyColor: #292a2b;
   --borderFormEls: hsl(0, 0%, 10%);
   --bgFormEls: hsl(0, 0%, 14%);
@@ -2647,7 +2649,7 @@ responsive
 
 #buttonTop {
   display: inline-block;
-  background-color: #e6634a;
+  background-color: #e31e24;
   width: 50px;
   height: 50px;
   text-align: center;
